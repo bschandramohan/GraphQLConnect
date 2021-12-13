@@ -4,6 +4,33 @@ type Query {
 
 type Course {
     title: String
-    trainer: String
-    rating: Int
+    trainer: Trainer
+    rating: String
+}
+
+type User {
+    firstName: String
+    lastName: String
+    dob: String
+    email: String
+    gender: GENDER
+}
+
+enum GENDER {
+    MALE
+    FEMALE
+    OTHER
+    UNKNOWN // Do not want to share
+}
+
+type Trainer {
+    user: User
+    course: Course
+}
+
+type Reviews {
+    binaryRating: Boolean
+    scaleRating: Int
+    scaleRatingMax: Int
+    feedbackText: String
 }
