@@ -1,0 +1,9 @@
+type Query {
+    courses(titleFilter: String): [Course]
+}
+
+type Course {
+    title: String
+    trainer: String
+    rating: Int
+}
