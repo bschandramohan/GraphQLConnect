@@ -20,7 +20,7 @@ enum GENDER {
     MALE
     FEMALE
     OTHER
-    UNKNOWN # Do-not-want-to-share
+    UNKNOWN #Do-not-want-to-share
 }
 
 type Trainer {
