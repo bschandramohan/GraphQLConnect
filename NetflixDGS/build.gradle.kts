@@ -5,6 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     kotlin("jvm") version "1.6.0"
     kotlin("plugin.spring") version "1.6.0"
+   id("com.netflix.dgs.codegen") version "5.1.11"
 }
 
 group = "com.bschandramohan.learn.graphql"
@@ -37,4 +38,18 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
     useJUnitPlatform()
+}
+tasks.withType<com.netflix.graphql.dgs.codegen.gradle.GenerateJavaTask> {
+    generateClient = true
+    packageName = "com.bschandramohan.learn.graphql.netflixdgs"
+}
+
+extra["kotlin.version"] = "1.5.31"
+
+sourceSets {
+    main {
+        java {
+            srcDir("${buildDir.absolutePath}/generated/")
+        }
+    }
 }
