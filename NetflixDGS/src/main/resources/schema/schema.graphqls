@@ -1,5 +1,5 @@
 type Query {
-    courses(titleFilter: String): [Course]
+    courses(courseTitle: String): [Course]
 }
 
 type Course {
@@ -8,9 +8,8 @@ type Course {
     review: Review
 }
 
-type User {
-    firstName: String
-    lastName: String
+interface User {
+    name: String
     dob: String
     email: String
     gender: GENDER
@@ -23,8 +22,11 @@ enum GENDER {
     UNKNOWN #Do-not-want-to-share
 }
 
-type Trainer {
-    user: User
+type Trainer implements User {
+    name: String
+    dob: String
+    email: String
+    gender: GENDER
     course: Course
 }
 
