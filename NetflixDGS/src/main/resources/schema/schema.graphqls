@@ -3,6 +3,10 @@ type Query {
     coursesByTitle(title: String): [Course]
 }
 
+type Mutation {
+    addReview(reviewInput: ReviewInput): Review
+}
+
 type Course {
     id: ID
     title: String
@@ -35,6 +39,15 @@ type Trainer implements User {
 }
 
 type Review {
+    id: ID
+    courseId: ID
+    binaryRating: Boolean
+    scaleRating: Int
+    scaleRatingMax: Int
+    feedbackText: String
+}
+
+input ReviewInput {
     id: ID
     courseId: ID
     binaryRating: Boolean

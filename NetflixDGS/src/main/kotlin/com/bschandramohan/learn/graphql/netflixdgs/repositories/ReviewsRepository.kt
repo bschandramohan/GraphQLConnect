@@ -1,7 +1,10 @@
 package com.bschandramohan.learn.graphql.netflixdgs.repositories
 
+import com.bschandramohan.learn.graphql.netflixdgs.mappers.toModel
+import com.bschandramohan.learn.graphql.netflixdgs.mappers.toReview
 import com.bschandramohan.learn.graphql.netflixdgs.models.ReviewModel
 import com.bschandramohan.learn.graphql.netflixdgs.types.Review
+import com.bschandramohan.learn.graphql.netflixdgs.types.ReviewInput
 import org.springframework.stereotype.Repository
 
 @Repository
@@ -16,4 +19,10 @@ class ReviewsRepository {
     fun getReview(id: String) = reviews.firstOrNull { it.id == id }
 
     fun getReviewForCourse(courseId: String) = reviews.firstOrNull { it.courseId == courseId }
+
+    fun addReview(reviewInput: ReviewInput): Review {
+        val model = reviewInput.toModel()
+        reviews.add(model)
+        return model.toReview()
+    }
 }
