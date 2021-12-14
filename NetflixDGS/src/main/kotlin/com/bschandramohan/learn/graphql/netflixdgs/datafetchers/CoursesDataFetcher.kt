@@ -16,4 +16,9 @@ class CoursesDataFetcher {
 
         return courses
     }
+
+    @DgsQuery
+    fun coursesByTitle(@InputArgument title: String): List<Course> {
+        return courses.filter { it.title == title }
+    }
 }
