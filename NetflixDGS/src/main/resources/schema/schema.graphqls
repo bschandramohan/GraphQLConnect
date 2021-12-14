@@ -4,12 +4,14 @@ type Query {
 }
 
 type Course {
+    id: ID
     title: String
     trainer: [Trainer]
     review: [Review]
 }
 
 interface User {
+    id: ID
     name: String
     dob: String
     email: String
@@ -24,14 +26,17 @@ enum GENDER {
 }
 
 type Trainer implements User {
+    id: ID
     name: String
     dob: String
     email: String
     gender: GENDER
-    course: Course
+    course: [Course]
 }
 
 type Review {
+    id: ID
+    courseId: ID
     binaryRating: Boolean
     scaleRating: Int
     scaleRatingMax: Int
