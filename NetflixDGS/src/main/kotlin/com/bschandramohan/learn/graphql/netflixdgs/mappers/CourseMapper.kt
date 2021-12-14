@@ -14,7 +14,7 @@ fun CourseModel.toCourse(trainerRepository: TrainerRepository, reviewRepository:
         reviewRepository.getReview(it)?.toReview()
     }
 
-    return Course(title = this.title, trainer = trainersList, review = reviewList)
+    return Course(id = this.id, title = this.title, trainer = trainersList, review = reviewList)
 }
 
 fun List<CourseModel>.toCourseList(trainerRepository: TrainerRepository, reviewRepository: ReviewsRepository) = map {
