@@ -5,8 +5,8 @@ type Query {
 
 type Course {
     title: String
-    trainer: Trainer
-    review: Review
+    trainer: [Trainer]
+    review: [Review]
 }
 
 interface User {
