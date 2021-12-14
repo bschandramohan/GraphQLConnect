@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository
 
 @Repository
 class TrainerRepository {
-    private val trainers = listOf(
+    private val trainers = mutableListOf(
         TrainerModel(id="t1", name="Chandra"),
         TrainerModel(id="t2", name="Mohan")
     )
